@@ -2,9 +2,10 @@
 export default {
   content: [
     "./index.html",
-    "./feed/**/*.html",
-    "./profile/**/*.html",
-    "./src/**/*.{html,js,jsx,ts,tsx}",
+    "./auth/index.html",
+    "./feed/index.html",
+    "./profile/index.html",
+    "./src//*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},

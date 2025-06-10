@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Log in to your Ingera Diary account to access your diary feed, connect with friends, and continue your personal journey."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/src/css/style.css" />
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-purple-100 to-indigog-100 font-sans"
+  >
+    <main>
+      <div class="flex items-center justify-center min-h-screen pt-16">
+        <div
+          class="w-full max-w-md p-8 bg-white rounded-2xl shadow-lg border-2 border-gray-200"
+        >
+          <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">
+            Login
+          </h1>
+          <form id="loginForm" class="space-y-5">
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Email <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+                autocomplete="email"
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              />
+            </div>
+
+            <div>
+              <label
+                for="password"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Password <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+                autocomplete="new-password"
+                minlength="8"
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-yellow-600 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition duration-200"
+            >
+              Login
+            </button>
+
+            <div class="text-center mt-4">
+              <a
+                href="/auth/register/"
+                class="text-indigo-500 hover:underline text-sm"
+              >
+                Don't have an account? Register
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script type="module">
+      import { handleLoginForm } from "/src/js/ui/auth/login.js";
+      handleLoginForm();
+    </script>
+  </body>
+</html>
