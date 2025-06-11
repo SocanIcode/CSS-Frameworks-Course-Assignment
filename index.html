@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>home page</title>
-    <link rel="stylesheet" href="/src/css/style.css" />
-  </head>
-  <body></body>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Discover posts, people, and tags across Ingera Diary. Search to explore meaningful content shared by the community.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media App</title>
+  <link rel="stylesheet" href="./src/css/style.css" />
+
+</head>
+<body>
+  <header>
+
+    <div id="nav"></div>
+
+  </header>
+
+  <main class="feed-container">
+    <h1>New Feeds</h1>
+    <section id="post-box">
+      </form>
+    
+      <div class="reaction-buttons">
+      </div>>
+    </section>
+  </main>
+  
+
+  <script type="module">
+    import { loadNav } from "/src/js/ui/global/nav.js";
+    loadNav();
+  </script>
+<script type="module">
+  import { renderFeed } from "/src/js/ui/post/renderCards.js";
+  renderFeed();
+</script>
+
+
+</body>
 </html>
