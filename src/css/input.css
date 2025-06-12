@@ -5,7 +5,7 @@
 
 @layer components {
   .btn {
-    @apply w-1/2 text-white-bold py-4 px-2 rounded-lg transition duration-200;
+    @apply w-full text-white font-bold py-4 px-2 rounded-lg transition duration-200;
   }
 
   .btn-primary {

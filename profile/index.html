@@ -8,19 +8,25 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Profile</title>
-    <link rel="stylesheet" href="../src/css/style.css" />
+    <link href="../src/css/style.css" rel="stylesheet" />
   </head>
-  <body cl>
-    <header>
+  <body >
+    <header class="bg-amber-800 sticky">
       <div id="nav"></div>
     </header>
-    <main class="px-4 py-8 max-w-4xl mx-auto">
-      <h1 class="text-3xl font-bold text-center text-sky-800 mb-8">Profile</h1>
-
-    <div class="bg-gray-50 px-4 py-8 max-w-5xl mx-auto">
+    <h1 class="text-3xl font-bold text-center text-sky-800 mb-8">Profile</h1>
+    <main
+      class="flex flex-col items-center justify-center space-y-6 bg-white px-6 rounded shadow mt-0"
+    >
+      <section
+        class="h-96 w-full max-w-7xl flex items-center justify-center  text-white"
+      >
+      <div class="h-full w-full bg-gray-50"> 
+  
+        
  
   <!-- Banner -->
-  <div class="relative w-full h-1/2 rounded-t-lg overflow-hidden">
+  <div class="sticky  h-1/2 rounded-t-lg overflow-hidden">
     <img
       id="profile-banner"
       src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
@@ -45,8 +51,12 @@
     <p id="profile-bio" class="text-gray-600 text-sm">This is your bio</p>
   </div>
 </div>
-
-  <!-- Followers / Following / Edit -->
+</div>
+      </section>
+     <section
+  class="h-30 w-full max-w-7xl flex py-6  px-4 items-center justify-start shadow-lg"
+>
+       <!-- Followers / Following / Edit -->
  
 <div class="flex px-3 gap-y-40 justify-start mt-6 text-sm">
   
@@ -72,7 +82,7 @@
 
     <button
       id="editProfileBtn"
-      class="btn-secondary rounded-lg px-4"
+      class="btn-secondary rounded-lg px-8"
     >
       Edit Profile
     </button>
@@ -127,8 +137,28 @@
   </form>
 </div>
 
-<!--put post here-->
+      </section>
+      <section class=" flex-col h-auto w-full max-w-5xl  bg-gray-100">
+     
+    <h4 id="post-title" class="text-xl font-semibold text-gray-800 mb-4">title</h4>
 
+    <div class="rounded-lg overflow-hidden mb-4">
+      <img
+        id="post-image"
+        src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
+        alt="Post image"
+        class="w-full  object-cover"
+      />
+    </div>
+
+    <div>
+      <p id="post-descriptionn" class="text-justify text-gray-600 text-sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, blanditiis iure. Rerum harum corrupti deserunt explicabo saepe. Doloribus, quas debitis neque, saepe hic natus tenetur fugiat repellat, accusamus nihil sequi!
+      </p>
+    </div>
+  </div>
+     </section>
+    </main>
 
     <script src="../src/js/script.js" type="module"></script>
   </body>

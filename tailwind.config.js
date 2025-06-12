@@ -5,7 +5,7 @@ export default {
     "./auth/index.html",
     "./feed/index.html",
     "./profile/index.html",
-    "./src//*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,html}",
   ],
   theme: {
     extend: {},
