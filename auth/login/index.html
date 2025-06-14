@@ -8,11 +8,47 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../../src\css\style.css" />
   </head>
-  <body
-    class="min-h-screen bg-gradient-to-br from-purple-100 to-indigog-100 font-sans"
-  >
+  <body class="min-h-screen bg-slate-50 font-sans">
+    <header class="bg-slate-800 p-4 sticky top-0 z-50">
+      <nav
+        class="relative flex justify-center items-center text-white text-xl font-semibold py-4"
+      >
+        <!-- Center Nav -->
+        <div
+          id="nav-center"
+          class="absolute left-1/2 transform -translate-x-1/2 flex space-x-6"
+        >
+          <a href="/index.html" class="hover:underline">Home</a>
+          <a href="/index.html" class="hover:underline">Explore</a>
+        </div>
+
+        <!-- Right Nav -->
+        <div id="nav-right" class="flex items-center gap-2 ml-auto">
+          <form id="navSearchForm" class="hidden md:block">
+            <input
+              id="navSearchInput"
+              class="placeholder:text-gray-200 placeholder:italic border rounded-md text-black"
+              placeholder="Search"
+              type="text"
+              name="search"
+            />
+          </form>
+          <a href="/profile/index.html" class="hover:underline">Profile</a>
+          <a href="/auth/login/index.html" class="hover:underline">Logout</a>
+        </div>
+
+        <!-- Optional: Logo -->
+        <div
+          id="logo"
+          class="absolute left-4 text-2xl font-bold cursor-pointer text-yellow-400"
+        ></div>
+      </nav>
+
+      <!-- Heading -->
+      <h1 class="text-3xl font-bold text-white mt-4">New Post Feed</h1>
+    </header>
     <main>
       <div class="flex items-center justify-center min-h-screen pt-16">
         <div
@@ -73,7 +109,12 @@
         </div>
       </div>
     </main>
-
+    <footer class="bg-slate-900 w-full p-10">
+      <div id="nav"></div>
+      <p class="text-md font-bold text-center text-white">
+        @copyright Azeb 2025
+      </p>
+    </footer>
     <script type="module">
       import { handleLoginForm } from "/src/js/ui/auth/login.js";
       handleLoginForm();

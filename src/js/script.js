@@ -1,3 +1,7 @@
+import { renderFeed } from "./ui/post/renderCard.js";
+
+renderFeed();
+
 const editBtn = document.getElementById("editProfileBtn");
 const editForm = document.getElementById("updateProfileForm");
 

@@ -1,39 +1,224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <meta charset="UTF-8" />
-  <meta name="description" content="Discover posts, people, and tags across Ingera Diary. Search to explore meaningful content shared by the community.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Social Media App</title>
-  <link rel="stylesheet" href="./src/css/style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Discover posts, people, and tags across Ingera Diary. Search to explore meaningful content shared by the community."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media App</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body class="min-h-screen bg-slate-50 font-sans">
+    <header class="bg-slate-800 p-4 sticky top-0 z-50">
+      <nav
+        class="relative flex justify-center items-center text-white text-xl font-semibold py-4"
+      >
+        <!-- Center Nav -->
+        <div
+          id="nav-center"
+          class="absolute left-1/2 transform -translate-x-1/2 flex space-x-6"
+        >
+          <a href="/index.html" class="hover:underline">Home</a>
+          <a href="/index.html" class="hover:underline">Explore</a>
+        </div>
 
-</head>
-<body>
-  <header>
+        <!-- Right Nav -->
+        <div id="nav-right" class="flex items-center gap-2 ml-auto">
+          <form id="navSearchForm" class="hidden md:block">
+            <input
+              id="navSearchInput"
+              class="placeholder:text-gray-200 placeholder:italic border rounded-md text-black"
+              placeholder="Search"
+              type="text"
+              name="search"
+            />
+          </form>
+          <a href="/profile/index.html" class="hover:underline">Profile</a>
+          <a href="/auth/login/index.html" class="hover:underline">Logout</a>
+        </div>
 
-    <div id="nav"></div>
+        <!-- Optional: Logo -->
+        <div
+          id="logo"
+          class="absolute left-4 text-2xl font-bold cursor-pointer text-yellow-400"
+        ></div>
+      </nav>
 
-  </header>
+      <!-- Heading -->
+      <h1 class="text-3xl font-bold text-white mt-4">New Post Feed</h1>
+    </header>
 
-  <main class="feed-container">
-    <h1>New Feeds</h1>
-    <section id="post-box">
-      </form>
-    
-      <div class="reaction-buttons">
-      </div>>
-    </section>
-  </main>
-  
+    <main class="flex flex-row justify-between px-10 mt-0">
+      <section
+        class="flex flex-col items-centerh-auto w-full max-w-2xl mx-auto bg-white p-6 rounded shadow-md mb-6"
+      >
+        <div id="postCreate" class="flex flex-col">
+          <!-- ✅ Form Input Section -->
+          <form class="flex flex-col gap-3">
+            <label for="comment" class="text-xl text-gray-700 font-medium"
+              >Post What is in your mind</label
+            >
+            <input
+              type="text"
+              id="bio"
+              name="bio"
+              placeholder="Title"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400"
+            />
+            <label for="upload-image" class="text-sm text-gray-700 font-medium"
+              >Upload an image</label
+            >
+            <input
+              type="file"
+              id="upload-image"
+              name="upload-image"
+              accept="image/*"
+              class="file:mr-4 file:py-2 file:px-4 file:border-0 file:rounded file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer"
+            />
+            <textarea
+              id="comment"
+              name="comment"
+              rows="3"
+              placeholder="Write your thoughts..."
+              class="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            ></textarea>
+            <button
+              type="submit"
+              class="self-end bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            >
+              Post
+            </button>
+          </form>
+        </div>
+        <!--post  appear here-->
+        <div
+          id="post-box"
+          class="flex flex-col h-auto w-full max-w-2xl mx-auto bg-white p-6 rounded shadow-md mb-6"
+        >
+          <h4 id="post-title" class="text-xl font-semibold text-gray-800 mb-4">
+            title
+          </h4>
 
-  <script type="module">
-    import { loadNav } from "/src/js/ui/global/nav.js";
-    loadNav();
-  </script>
-<script type="module">
-  import { renderFeed } from "/src/js/ui/post/renderCards.js";
-  renderFeed();
-</script>
+          <div class="rounded-lg overflow-hidden mb-4">
+            <img
+              id="post-image"
+              src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
+              alt="Post image"
+              class="w-full object-cover border border-gray-300"
+            />
+          </div>
 
+          <div>
+            <p
+              id="post-descriptionn"
+              class="text-justify text-gray-600 text-sm"
+            ></p>
+          </div>
+          <div
+            class="reaction-buttons flex gap-2 bg-gray-50 w-full h-auto p-2 mt-0 rounded-sm"
+            id="reactionButtons"
+          >
+            <button data-emoji="thumbsUp" class="emoji-btn">👍</button>
+            <button data-emoji="thumbsDown" class="emoji-btn">👎</button>
+            <button data-emoji="heart" class="emoji-btn">❤️</button>
+            <button data-emoji="laugh" class="emoji-btn">😂</button>
+          </div>
 
-</body>
+          <div>
+            <h2>Comments</h2>
+            <div id="commentsContainer"></div>
+            <form
+              id="commentForm"
+              class="flex gap-2 bg-gray-50 w-full h-auto p-2 mt-0 rounded-sm"
+            >
+              <input
+                type="text"
+                placeholder="Add comment"
+                class="border px-2 py-1 rounded w-full mb-2"
+              />
+              <button
+                type="submit"
+                class="bg-gray-400 text-white px-2 py-1 rounded"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#1f1f1f"
+                >
+                  <path
+                    d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Following and Follower section -->
+      <section
+        class="flex flex-col max-w-sm w-60 ml-auto mt-0 bg-gray-50 p-2 rounded shadow-md"
+      >
+        <!-- Following -->
+        <div
+          class="flex flex-col items-start font-semibold gap-y-1 text-blue-700 mb-6"
+        >
+          <h2 class="text-xl">Following</h2>
+
+          <div class="flex items-center gap-x-2 py-2">
+            <img
+              id="profile-avatar"
+              src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-2.jpg"
+              alt="Avatar"
+              class="w-12 h-12 rounded-full border-4 border-white shadow-md object-cover"
+            />
+
+            <h4
+              id="profile-username"
+              class="text-md font-semibold text-gray-600"
+            >
+              @username
+            </h4>
+          </div>
+        </div>
+
+        <!-- Follower -->
+        <div
+          class="flex flex-col items-start font-semibold gap-y-1 text-blue-700"
+        >
+          <h2 class="text-xl">Follower</h2>
+
+          <div class="flex items-center gap-x-2 py-2">
+            <img
+              id="profile-avatar"
+              src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-2.jpg"
+              alt="Avatar"
+              class="w-12 h-12 rounded-full border-4 border-white shadow-md object-cover"
+            />
+
+            <h4
+              id="profile-username"
+              class="text-md font-semibold text-gray-600"
+            >
+              @username
+            </h4>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--footer section-->
+    <footer class="bg-slate-900 w-full p-10">
+      <div id="nav"></div>
+      <p class="text-md font-bold text-center text-white">
+        @copyright Azeb 2025
+      </p>
+    </footer>
+
+    <script type="module" src="./src/js/script.js"></script>
+  </body>
 </html>

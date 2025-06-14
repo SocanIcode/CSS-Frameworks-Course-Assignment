@@ -10,14 +10,50 @@
     <title>My Profile</title>
     <link href="../src/css/style.css" rel="stylesheet" />
   </head>
-  <body >
-    <header class="bg-amber-800 sticky">
-      <div id="nav"></div>
+  <body class="min-h-screen bg-slate-50 font-sans">
+
+    <header class="bg-slate-800 p-4 sticky top-0 z-50">
+      <nav
+        class="relative flex justify-center items-center text-white text-xl font-semibold py-4"
+      >
+        <!-- Center Nav -->
+        <div
+          id="nav-center"
+          class="absolute left-1/2 transform -translate-x-1/2 flex space-x-6"
+        >
+          <a href="/index.html" class="hover:underline">Home</a>
+          <a href="/index.html" class="hover:underline">Explore</a>
+        </div>
+
+        <!-- Right Nav -->
+        <div id="nav-right" class="flex items-center gap-2 ml-auto">
+          <form id="navSearchForm" class="hidden md:block">
+            <input
+              id="navSearchInput"
+              class="placeholder:text-gray-200 placeholder:italic border rounded-md text-black"
+              placeholder="Search"
+              type="text"
+              name="search"
+            />
+          </form>
+          <a href="/profile/index.html" class="hover:underline">Profile</a>
+          <a href="/auth/login/index.html" class="hover:underline">Logout</a>
+        </div>
+
+        <!-- Optional: Logo -->
+        <div
+          id="logo"
+          class="absolute left-4 text-2xl font-bold cursor-pointer text-yellow-400"
+        ></div>
+      </nav>
+      <!-- Heading -->
+      <h1 class="text-3xl font-bold text-white mt-4">New Post Feed</h1>
     </header>
-    <h1 class="text-3xl font-bold text-center text-sky-800 mb-8">Profile</h1>
+   
     <main
       class="flex flex-col items-center justify-center space-y-6 bg-white px-6 rounded shadow mt-0"
     >
+    
       <section
         class="h-96 w-full max-w-7xl flex items-center justify-center  text-white"
       >
@@ -88,7 +124,7 @@
     </button>
   </div>
 
-  <!-- Edit Form -->
+  <!-- Edit profile  Form -->
   <form id="updateProfileForm" class="space-y-4 mt-6 hidden">
    
     <input
@@ -138,28 +174,38 @@
 </div>
 
       </section>
-      <section class=" flex-col h-auto w-full max-w-5xl  bg-gray-100">
+      <!---post page -->
+      <section class=" flex-col h-auto w-full max-w-2xl  bg-gray-50">
      
     <h4 id="post-title" class="text-xl font-semibold text-gray-800 mb-4">title</h4>
 
-    <div class="rounded-lg overflow-hidden mb-4">
-      <img
-        id="post-image"
-        src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
-        alt="Post image"
-        class="w-full  object-cover"
-      />
-    </div>
+    <div class="overflow-hidden mb-4 w-full max-w-md mx-auto">
+  <img
+    id="post-image"
+    src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
+    alt="Post image"
+    class="mx-auto object-cover border border-gray-300 rounded"
+  />
+</div>
 
-    <div>
-      <p id="post-descriptionn" class="text-justify text-gray-600 text-sm">
+    <div class="overflow-hidden mb-4 w-full max-w-md mx-auto p-4 text-justify text-gray-600 text-sm bg-white rounded shadow-2xl">
+      <p id="post-descriptionn">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, blanditiis iure. Rerum harum corrupti deserunt explicabo saepe. Doloribus, quas debitis neque, saepe hic natus tenetur fugiat repellat, accusamus nihil sequi!
       </p>
     </div>
-  </div>
+
+  
+     <div id="recation-commnet">
+          
+          </div>
      </section>
     </main>
+       <footer class="bg-slate-900  w-full p-10 ">
+      <div id="nav"></div>
+        <p class="text-md font-bold text-center text-white">@copyright Azeb 2025 </p>
+   </footer>
 
     <script src="../src/js/script.js" type="module"></script>
+    <script src="../src/js/ui/profile/updateProfile.js"></script>
   </body>
 </html>
