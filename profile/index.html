@@ -89,23 +89,34 @@
 </div>
 </div>
       </section>
+
+       <!-- Followers / Following / Edit -->
      <section
   class="h-30 w-full max-w-7xl flex py-6  px-4 items-center justify-start shadow-lg"
 >
-       <!-- Followers / Following / Edit -->
- 
-<div class="flex px-3 gap-y-40 justify-start mt-6 text-sm">
-  
+      
+ <!-- Toggle Button (visible on mobile/tablet only) -->
+<div class="flex  px-2 md:hidden">
+  <button id="profileToggleBtn" class="text-gray-600 text-2xl focus:outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
+  </button>
+</div>
+
+<!-- Collapsible Section (hidden by default on mobile) -->
+<div
+  id="profileMenu"
+  class="hidden md:flex flex-col gap-4 mt-4 px-4 md:flex-row md:items-center md:justify-between"
+>
   <!-- Following -->
-  <div class="flex items-center font-semibold gap-x-2 px-4 text-blue-700 hover:text-sky-900">
-    <h4 class="font-semibold ">Following</h4>
+  <div class="flex items-center font-semibold gap-x-2 text-blue-700 hover:text-sky-900">
+    <h4 class="font-semibold">Following</h4>
     <span class="bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 rounded">204</span>
   </div>
 
   <!-- Followers -->
-  <div class="flex items-center font-semibold gap-x-2 px-4 text-blue-700 hover:text-sky-900">
+  <div class="flex items-center font-semibold gap-x-2 text-blue-700 hover:text-sky-900">
     <h4>Followers</h4>
-    <span class="bg-slate-100 px-3 py-1 text-xs  rounded">194</span>
+    <span class="bg-slate-100 px-3 py-1 text-xs rounded">194</span>
   </div>
 
   <!-- Search -->
@@ -116,61 +127,21 @@
     name="search"
   />
 
-    <button
-      id="editProfileBtn"
-      class="btn-secondary rounded-lg px-8"
-    >
-      Edit Profile
-    </button>
-  </div>
+  <!-- Edit Button -->
+  <button
+    id="editProfileBtn"
+    class="btn-secondary rounded-lg px-8"
+  >
+    Edit Profile
+  </button>
+</div>
 
-  <!-- Edit profile  Form -->
-  <form id="updateProfileForm" class="space-y-4 mt-6 hidden">
-   
-    <input
-      type="text"
-      id="bio"
-      name="bio"
-      placeholder="Bio"
-      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400"
-    />
-
-    <input
-      type="url"
-      id="avatar-url"
-      name="avatar-url"
-      placeholder="Avatar URL"
-      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400"
-    />
-
-    <input
-      type="text"
-      id="avatar-alt"
-      name="avatar-alt"
-      placeholder="Avatar ALT text"
-      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400"
-    />
-
-    <input
-      type="url"
-      id="banner-url"
-      name="banner-url"
-      placeholder="Banner URL"
-      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400"
-    />
-
-    <input
-      type="text"
-      id="banner-alt"
-      name="banner-alt"
-      placeholder="Banner ALT text"
-      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400"
-    />
-
-    <button class=" btn-primary">
-      Save changes
-    </button>
-  </form>
+<!-- Edit Form (hidden by default) -->
+<form id="updateProfileForm" class="hidden px-4 mt-4">
+  <!-- Add your edit form fields here -->
+  <input type="text" placeholder="New username" class="border px-4 py-2 rounded w-full mb-2" />
+  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+</form>
 </div>
 
       </section>
