@@ -11,26 +11,46 @@
     <link href="../src/css/style.css" rel="stylesheet" />
   </head>
   <body class="min-h-screen bg-slate-50 font-sans">
-
     <header class="bg-slate-800 p-4 sticky top-0 z-50">
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobileMenuToggle"
+        class="text-white text-2xl md:hidden"
+        aria-label="Toggle menu"
+      >
+        <!-- Hamburger SVG Icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="42px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="white"
+        >
+          <path
+            d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+          />
+        </svg>
+      </button>
+
+      <!-- Nav Bar -->
       <nav
         class="relative flex justify-center items-center text-white text-xl font-semibold py-4"
       >
-        <!-- Center Nav -->
+        <!-- Center Nav (desktop) -->
         <div
           id="nav-center"
-          class="absolute left-1/2 transform -translate-x-1/2 flex space-x-6"
+          class="absolute left-1/2 transform -translate-x-1/2 space-x-6 hidden md:flex"
         >
           <a href="/index.html" class="hover:underline">Home</a>
           <a href="/index.html" class="hover:underline">Explore</a>
         </div>
 
         <!-- Right Nav -->
-        <div id="nav-right" class="flex items-center gap-2 ml-auto">
-          <form id="navSearchForm" class="hidden md:block">
+        <div id="nav-right" class="hidden md:flex items-center gap-2 ml-auto">
+          <form id="desktopSearchForm" class="hidden md:block">
             <input
-              id="navSearchInput"
-              class="placeholder:text-gray-200 placeholder:italic border rounded-md text-black"
+              id="desktopSearchInput"
+              class="placeholder:text-gray-200 mr-6 ..."
               placeholder="Search"
               type="text"
               name="search"
@@ -39,144 +59,250 @@
           <a href="/profile/index.html" class="hover:underline">Profile</a>
           <a href="/auth/login/index.html" class="hover:underline">Logout</a>
         </div>
-
-        <!-- Optional: Logo -->
-        <div
-          id="logo"
-          class="absolute left-4 text-2xl font-bold cursor-pointer text-yellow-400"
-        ></div>
       </nav>
+
       <!-- Heading -->
-      <h1 class="text-3xl font-bold text-white mt-4">New Post Feed</h1>
+      <h1 class="text-3xl font-bold text-white mt-4">CSS FrameWorks</h1>
     </header>
-   
+
+    <!-- Mobile Side Menu Panel -->
+    <div
+      id="mobileMenu"
+      class="fixed top-0 left-0 h-full w-64 bg-white text-black shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden p-6 space-y-4"
+    >
+      <a href="/index.html" class="block font-medium hover:underline">Home</a>
+      <a href="/index.html" class="block font-medium hover:underline"
+        >Explore</a
+      >
+      <form id="mobileSearchForm" class="hidden md:block">
+        <input
+          id="mobileSearchInput"
+          class="placeholder:text-gray-200 placeholder:italic border rounded-md text-black"
+          placeholder="Search"
+          type="text"
+          name="search"
+        />
+      </form>
+      <a href="/profile/index.html" class="block font-medium hover:underline"
+        >Profile</a
+      >
+      <a href="/auth/login/index.html" class="block font-medium hover:underline"
+        >Logout</a
+      >
+    </div>
+
+    <!-- Overlay for closing menu -->
+    <div
+      id="mobileOverlay"
+      class="fixed inset-0 bg-black bg-opacity-30 hidden z-40 md:hidden"
+    ></div>
+
     <main
       class="flex flex-col items-center justify-center space-y-6 bg-white px-6 rounded shadow mt-0"
     >
-    
       <section
-        class="h-96 w-full max-w-7xl flex items-center justify-center  text-white"
+        class="h-96 w-full max-w-7xl flex items-center justify-center text-white"
       >
-      <div class="h-full w-full bg-gray-50"> 
-  
-        
- 
-  <!-- Banner -->
-  <div class="sticky  h-1/2 rounded-t-lg overflow-hidden">
-    <img
-      id="profile-banner"
-      src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
-      alt="Banner"
-      class="w-full  object-cover"
-    />
-  </div>
+        <div class="h-full w-full bg-gray-50">
+          <!-- Banner -->
+          <div class="sticky h-1/2 rounded-t-lg overflow-hidden">
+            <img
+              id="profile-banner"
+              src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
+              alt="user Banner"
+              class="w-full object-cover"
+            />
+          </div>
 
-    <!-- Avatar overlapping banner -->
-    <div class="left-6">
-      <img
-        id="profile-avatar"
-        src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-2.jpg"
-        alt="Avatar"
-        class="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover"
-      />
-    <!-- Profile Info below avatar -->
-  
-    <h2 id="profile-username" class="text-2xl font-bold text-gray-800">@username</h2>
-     </div>
-     <div class="mt-2 ml-6">
-    <p id="profile-bio" class="text-gray-600 text-sm">This is your bio</p>
-  </div>
-</div>
-</div>
+          <!-- Avatar overlapping banner -->
+          <div class="left-6">
+            <img
+              id="profile-avatar"
+              src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-2.jpg"
+              alt="User Avatar"
+              class="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover"
+            />
+            <!-- Profile Info below avatar -->
+
+            <h2 id="profile-username" class="text-2xl font-bold text-gray-800">
+              @username
+            </h2>
+          </div>
+          <div class="mt-2 ml-6">
+            <p id="profile-bio" class="text-gray-600 text-sm">
+              This is your bio
+            </p>
+          </div>
+        </div>
       </section>
 
-       <!-- Followers / Following / Edit -->
-     <section
-  class="h-30 w-full max-w-7xl flex py-6  px-4 items-center justify-start shadow-lg"
->
-      
- <!-- Toggle Button (visible on mobile/tablet only) -->
-<div class="flex  px-2 md:hidden">
-  <button id="profileToggleBtn" class="text-gray-600 text-2xl focus:outline-none">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
-  </button>
-</div>
+      <!-- Followers / Following / Edit -->
+      <section
+        class="h-30 w-full max-w-7xl flex py-6 px-4 items-center justify-start shadow-lg"
+      >
+        <h3 class="inline-block text-md font-semibold text-gray-800">
+          Account Stats
+        </h3>
+        <!-- Toggle Button (visible on mobile/tablet only) -->
+        <div class="flex px-2 md:hidden">
+          <button
+            id="profileToggleBtn"
+            class="text-gray-600 text-2xl focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#1f1f1f"
+            >
+              <path
+                d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"
+              />
+            </svg>
+          </button>
+        </div>
 
-<!-- Collapsible Section (hidden by default on mobile) -->
-<div
-  id="profileMenu"
-  class="hidden md:flex flex-col gap-4 mt-4 px-4 md:flex-row md:items-center md:justify-between"
->
-  <!-- Following -->
-  <div class="flex items-center font-semibold gap-x-2 text-blue-700 hover:text-sky-900">
-    <h4 class="font-semibold">Following</h4>
-    <span class="bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 rounded">204</span>
-  </div>
+        <!-- Collapsible Section (hidden by default on mobile) -->
+        <div
+          id="profileMenu"
+          class="hidden md:flex flex-col gap-4 mt-4 px-4 md:flex-row md:items-center md:justify-between"
+        >
+          <!-- Following -->
+          <div
+            class="flex items-center font-semibold gap-x-2 text-blue-700 hover:text-sky-900"
+          >
+            <h4 class="font-semibold">Following</h4>
+            <span
+              class="bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 rounded"
+              >204</span
+            >
+          </div>
 
-  <!-- Followers -->
-  <div class="flex items-center font-semibold gap-x-2 text-blue-700 hover:text-sky-900">
-    <h4>Followers</h4>
-    <span class="bg-slate-100 px-3 py-1 text-xs rounded">194</span>
-  </div>
+          <!-- Followers -->
+          <div
+            class="flex items-center font-semibold gap-x-2 text-blue-700 hover:text-sky-900"
+          >
+            <h4>Followers</h4>
+            <span class="bg-slate-100 px-3 py-1 text-xs rounded">194</span>
+          </div>
 
-  <!-- Search -->
-  <input
-    class="placeholder:text-gray-400 placeholder:italic border px-4 py-1 rounded-md"
-    placeholder="Search"
-    type="text"
-    name="search"
-  />
+          <!-- Search -->
+          <input
+            class="placeholder:text-gray-400 placeholder:italic border px-4 py-1 rounded-md"
+            placeholder="Search"
+            type="text"
+            name="search"
+          />
 
-  <!-- Edit Button -->
-  <button
-    id="editProfileBtn"
-    class="btn-secondary rounded-lg px-8"
-  >
-    Edit Profile
-  </button>
-</div>
+          <!-- Edit Button -->
+          <button id="editProfileBtn" class="btn-secondary px-8">
+            Edit Profile
+          </button>
+        </div>
 
-<!-- Edit Form (hidden by default) -->
-<form id="updateProfileForm" class="hidden px-4 mt-4">
-  <!-- Add your edit form fields here -->
-  <input type="text" placeholder="New username" class="border px-4 py-2 rounded w-full mb-2" />
-  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
-</form>
-</div>
+        <!-- Edit Form (hidden by default) -->
+        <form id="updateProfileForm" class="hidden px-4 mt-4">
+          <h3 class="text-lg font-semibold text-gray-800 mt-4">
+            Edit Profile Info
+          </h3>
+          <label for="username" class="sr-only">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="username"
+            class="border px-4 py-2 rounded w-full mb-2"
+          />
 
+          <label for="bio" class="sr-only">Bio</label>
+          <input
+            type="text"
+            id="bio"
+            name="bio"
+            placeholder="Bio"
+            class="border px-4 py-2 rounded w-full mb-2"
+          />
+          <label for="avatar-url" class="sr-only">Avatar URL</label>
+          <input
+            type="url"
+            id="avatar-url"
+            name="avatar-url"
+            placeholder="Avatar URL"
+            class="border px-4 py-2 rounded w-full mb-2"
+          />
+          <label for="avatar-alt" class="sr-only">Avatar ALT text</label>
+          <input
+            type="text"
+            id="avatar-alt"
+            name="avatar-alt"
+            placeholder="Avatar ALT text"
+            class="border px-4 py-2 rounded w-full mb-2"
+          />
+          <label for="banner-url" class="sr-only">Banner URL</label>
+          <input
+            type="url"
+            id="banner-url"
+            name="banner-url"
+            placeholder="Banner URL"
+            class="border px-4 py-2 rounded w-full mb-2"
+          />
+          <label for="banner-alt" class="sr-only">Banner ALT text</label>
+          <input
+            type="text"
+            id="banner-alt"
+            name="banner-alt"
+            placeholder="Banner ALT text"
+            class="border px-4 py-2 rounded w-full mb-2"
+          />
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded"
+          >
+            Save
+          </button>
+        </form>
       </section>
       <!---post page -->
-      <section class=" flex-col h-auto w-full max-w-2xl  bg-gray-50">
-     
-    <h4 id="post-title" class="text-xl font-semibold text-gray-800 mb-4">title</h4>
+      <section class="flex-col h-auto w-full max-w-2xl bg-gray-50">
+        <div id="post-box"></div>
 
-    <div class="overflow-hidden mb-4 w-full max-w-md mx-auto">
-  <img
-    id="post-image"
-    src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
-    alt="Post image"
-    class="mx-auto object-cover border border-gray-300 rounded"
-  />
-</div>
+        <h3 id="post-title" class="text-xl font-semibold text-gray-800 mb-4">
+          title
+        </h3>
 
-    <div class="overflow-hidden mb-4 w-full max-w-md mx-auto p-4 text-justify text-gray-600 text-sm bg-white rounded shadow-2xl">
-      <p id="post-descriptionn">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, blanditiis iure. Rerum harum corrupti deserunt explicabo saepe. Doloribus, quas debitis neque, saepe hic natus tenetur fugiat repellat, accusamus nihil sequi!
-      </p>
-    </div>
+        <div class="overflow-hidden mb-4 w-full max-w-md mx-auto">
+          <img
+            id="post-image"
+            src="https://wudasi6951.live-website.com/wp-content/uploads/2025/03/sketchperfect-7.jpg"
+            alt="Post image"
+            class="mx-auto object-cover border border-gray-300 rounded"
+          />
+        </div>
 
-  
-     <div id="recation-commnet">
-          
-          </div>
-     </section>
+        <div
+          class="overflow-hidden mb-4 w-full max-w-md mx-auto p-4 text-justify text-gray-600 text-sm bg-white rounded shadow-2xl"
+        >
+          <p id="post-descriptionn">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem,
+            blanditiis iure. Rerum harum corrupti deserunt explicabo saepe.
+            Doloribus, quas debitis neque, saepe hic natus tenetur fugiat
+            repellat, accusamus nihil sequi!
+          </p>
+        </div>
+
+        <div id="recation-commnet"></div>
+      </section>
     </main>
-       <footer class="bg-slate-900  w-full p-10 ">
+    <footer class="bg-slate-900 w-full p-10">
       <div id="nav"></div>
-        <p class="text-md font-bold text-center text-white">@copyright Azeb 2025 </p>
-   </footer>
+      <p class="text-md font-bold text-center text-white">
+        @copyright Azeb 2025
+      </p>
+    </footer>
 
     <script src="../src/js/script.js" type="module"></script>
-    <script src="../src/js/ui/profile/updateProfile.js"></script>
+
+    <script type="module" src="../src/js/profile/index.js"></script>
   </body>
 </html>

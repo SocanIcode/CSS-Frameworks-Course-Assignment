@@ -37,7 +37,7 @@ function renderProfile(profile) {
     `;
   }
 
-  // the image  is not diplayed as an avatar, I need to fix it
+  // profile avator
   if (avatarContainer) {
     avatarContainer.innerHTML = `
       <img id="profileAvatar" src="${profile.avatar?.url || "#"}" alt="${profile.avatar?.alt || "Avatar"}" class="avatar">

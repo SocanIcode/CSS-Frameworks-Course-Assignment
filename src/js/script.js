@@ -51,8 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileOverlay = document.getElementById("mobileOverlay");
 
   if (mobileMenuToggle && mobileMenu && mobileOverlay) {
-    mobileMenuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
+    mobileMenuToggle.addEventListener("click", () => {
       mobileMenu.classList.remove("-translate-x-full");
       mobileOverlay.classList.remove("hidden");
     });

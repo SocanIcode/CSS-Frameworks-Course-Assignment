@@ -4,7 +4,6 @@ export default {
     "./index.html",
     "./auth/login/index.html",
     "./auth/register/index.html",
-    "./feed/index.html",
     "./profile/index.html",
     "./src/**/*.{js,ts,jsx,tsx,html}",
   ],
